@@ -1,6 +1,6 @@
 ############################################################################
 #
-#   Copyright (c) 2015 PX4 Development Team. All rights reserved.
+#   Copyright (c) 2016 PX4 Development Team. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -30,16 +30,16 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 ############################################################################
-px4_add_module(
-	MODULE modules__attitude_estimator_ekf
-	MAIN attitude_estimator_ekf
-	STACK_MAIN 1200
-	COMPILE_FLAGS
-		-Wno-float-equal
-	SRCS
-		attitude_estimator_ekf_main.cpp
-		codegen/AttitudeEKF.c
-	DEPENDS
-		platforms__common
+include_directories(..)
+
+add_executable(navio_rgbled_test
+	main.cpp
+	test.cpp
 	)
-# vim: set noet ft=cmake fenc=utf-8 ff=unix : 
+
+target_link_libraries(navio_rgbled_test
+	drivers__navio_rgbled
+	drivers__navio_gpio
+	platforms__posix__px4_layer
+	df_driver_framework
+	)

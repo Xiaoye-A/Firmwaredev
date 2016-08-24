@@ -31,13 +31,12 @@
 #
 ############################################################################
 px4_add_module(
-	MODULE modules__mc_att_control_multiplatform
-	MAIN mc_att_control_m
+	MODULE examples__mc_pos_control_multiplatform
+	MAIN mc_pos_control_m
 	SRCS
-		mc_att_control_main.cpp
-		mc_att_control_start_nuttx.cpp
-		mc_att_control.cpp
-		mc_att_control_base.cpp
+		mc_pos_control_main.cpp
+		mc_pos_control_start_nuttx.cpp
+		mc_pos_control.cpp
 	DEPENDS
 		platforms__common
 	)
